@@ -1,0 +1,12 @@
+---
+applications:
+- name: trusttesting
+  memory: 1G
+  random-route: true
+  path: build/libs/trusttesting-1.0.jar
+  env:
+#    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
+     #JAVA_OPTS: '-Djavax.net.ssl.TrustStore=resources/config/PublicKey'
+     JAVA_OPTS: '-Djavax.net.debug=all -Djavax.net.ssl.trustStore=/app/BOOT-INF/classes/jssecacerts'
+     #JAVA_OPTS: '-Djavax.net.debug=all -Djavax.net.ssl.trustStore=classpath:resources/jssecacerts' (This doesn't work)
+
